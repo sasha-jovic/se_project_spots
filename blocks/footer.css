@@ -1,0 +1,12 @@
+.footer {
+  max-width: 1280px;
+  background-color: #fcf5e5;
+  height: 200px;
+  border-top: 1px rgb(33, 33, 33, 0.4) solid;
+  margin: 0 auto;
+  display: flex;
+}
+.footer__copyright {
+  padding-top: 90px;
+  margin: 0 auto;
+}
