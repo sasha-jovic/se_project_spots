@@ -44,5 +44,6 @@
   }
   .card__title {
     width: 250px;
+    line-height: 18px;
   }
 }
