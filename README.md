@@ -24,10 +24,10 @@ Good luck and have fun!
 
 ## An interactive social media web application.
 
-## techniques: - BEM Flat files. - Flex box techniques. - Media quires techniques,for mobile view and desktop.
+## techniques: - BEM Flat files. - Flex box techniques. - Media quires techniques,for mobile view and desktop view.
 
-### desktop view image: <img src="./images/desktop-view.png"/>
+### github link:git@github.com:sasha-jovic/se_project_spots.git
 
-### mobile view image: <img src="./images/mobile-view.png"/>
+#### project Spots video:
 
-#### github link:git@github.com:sasha-jovic/se_project_spots.git
+https://drive.google.com/file/d/1Xmw1WLsA0j-GY9MjxPya-B-A8umcyyll/view?usp=share_link
