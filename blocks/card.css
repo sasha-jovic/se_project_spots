@@ -3,8 +3,9 @@
   width: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 5px;
+  border-radius: 8px;
 }
+
 .card__like-button {
   background-image: url(../images/Union.svg);
   width: 23px;
@@ -12,6 +13,11 @@
   border: none;
   background-color: transparent;
   opacity: 40%;
+  cursor: pointer;
+}
+.card__like-button:hover {
+  color: #212121;
+  opacity: 70%;
 }
 .card__content {
   width: 413px;
@@ -19,6 +25,7 @@
   align-items: center;
   justify-content: space-between;
 }
+
 .card__title {
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
@@ -29,6 +36,7 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 314px;
+  margin: 12px 0 0;
 }
 @media screen and (max-width: 627px) {
   .card__image {
@@ -42,6 +50,7 @@
   }
   .card__title {
     width: 250px;
-    line-height: 18px;
+    line-height: 16px;
+    font-size: 16px;
   }
 }

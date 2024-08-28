@@ -1,17 +1,12 @@
 .header {
   background-color: white;
-  height: 46px;
+  min-height: 46px;
 }
 .header__logo {
   display: block;
-  width: 76px;
+  width: 94px;
   height: 26px;
   margin: auto;
   padding: 10px 0;
-  border: 0.2px;
-  font-family: DM Mono;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 26.04px;
   color: #212121;
 }
