@@ -22,12 +22,14 @@
   justify-content: space-around;
   align-items: center;
   border-radius: 8px;
-  color: white;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
   border: none;
+}
+.profile__button:hover {
+  opacity: 70%;
 }
 
 .profile__plus {
@@ -49,10 +51,7 @@
   font-size: 16px;
   line-height: 16px;
 }
-.profile__button-text:hover {
-  color: #fcf5e5;
-  opacity: 80%;
-}
+
 .profile__column {
   display: flex;
   flex-direction: column;
@@ -60,14 +59,12 @@
 }
 .profile__edit-button {
   display: flex;
-
   align-items: center;
   gap: 8px;
   margin-top: auto;
   padding-left: 20px;
   background-color: #fcf5e5;
   border: none;
-
   opacity: 70%;
   cursor: pointer;
   font-family: Poppins, Arial, Helvetica, sans-serif;
@@ -79,7 +76,7 @@
 
 .profile__edit-button:hover {
   color: #212121;
-  opacity: 90%;
+  opacity: 40%;
 }
 .profile__description {
   margin: 0 0 32px;
