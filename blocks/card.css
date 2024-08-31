@@ -14,9 +14,10 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  opacity: 40%;
 }
 .card__like-button:hover {
-  opacity: 40%;
+  opacity: 100%;
 }
 .card__content {
   width: 413px;
@@ -42,6 +43,7 @@
     height: 288px;
     width: 288px;
     margin: 0 auto;
+    padding-bottom: 10px;
   }
   .card__content {
     width: 288px;

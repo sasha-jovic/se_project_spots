@@ -29,7 +29,7 @@
   border: none;
 }
 .profile__button:hover {
-  opacity: 70%;
+  opacity: 80%;
 }
 
 .profile__plus {
@@ -75,8 +75,7 @@
 }
 
 .profile__edit-button:hover {
-  color: #212121;
-  opacity: 40%;
+  opacity: 100%;
 }
 .profile__description {
   margin: 0 0 32px;
