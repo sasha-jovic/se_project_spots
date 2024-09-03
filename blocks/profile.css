@@ -22,7 +22,7 @@
   justify-content: space-around;
   align-items: center;
   border-radius: 8px;
-  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-family: "Poppins", "Arial", "Helvetica", "sans-serif";
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
@@ -46,7 +46,7 @@
   height: 16px;
   color: #fcf5e5;
   cursor: pointer;
-  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-family: "Poppins", "Arial", "Helvetica", "sans-serif";
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
@@ -67,7 +67,7 @@
   border: none;
   opacity: 70%;
   cursor: pointer;
-  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
@@ -80,7 +80,7 @@
 .profile__description {
   margin: 0 0 32px;
   padding-left: 20px;
-  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
@@ -101,7 +101,7 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 1;
-  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   color: #212121;
   max-width: 420px;
   text-overflow: ellipsis;
