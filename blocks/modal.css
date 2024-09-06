@@ -6,16 +6,17 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgb(0, 0, 0, 0.1);
+  background-color: rgb(0, 0, 0, 0.4);
   padding: 0 16px;
   align-items: center;
   justify-content: center;
   visibility: hidden;
 }
 
-.modal_opend {
+.modal_opened {
   visibility: visible;
 }
+
 .modal__container {
   display: flex;
   flex-direction: column;
@@ -44,6 +45,10 @@
   right: 50px;
   background-color: transparent;
   border: none;
+  color: #212121;
+  opacity: 40%;
+  width: 40px;
+  height: 40px;
 }
 .modal__title {
   width: 169px;
@@ -66,6 +71,8 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 17.6px;
+  color: #212121;
+  opacity: 70%;
 }
 .modal__input {
   padding: 16px 12px;
@@ -74,9 +81,15 @@
   border-color: #212121;
   opacity: 40%;
   border-radius: 8px;
+  font-family: "Poppins", "Helvetica", "sans-serif";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  color: #212121;
   margin: 0;
   gap: 10px;
   box-sizing: border-box;
+  border-width: 1px;
 }
 
 .modal__submit-button {
@@ -88,6 +101,7 @@
   gap: 8px;
   border-radius: 8px;
 }
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
