@@ -50,6 +50,8 @@ function getCardElement(data) {
   let userTemplate = document.querySelector("#card-template").content;
   let usersOnline = document.querySelector(".card");
   let userElement = userTemplate.querySelector(".card").cloneNode(true);
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
 
   return cardElement;
 }

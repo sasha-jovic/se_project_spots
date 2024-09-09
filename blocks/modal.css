@@ -78,14 +78,13 @@
   padding: 16px 12px;
   max-width: 630px;
   width: 100%;
-  border-color: #212121;
 
   border-radius: 8px;
   font-family: "Poppins", "Helvetica", "sans-serif";
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
-  color: #212121;
+
   margin: 0;
   gap: 10px;
   box-sizing: border-box;
