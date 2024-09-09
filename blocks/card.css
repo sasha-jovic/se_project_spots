@@ -6,6 +6,11 @@
   border-radius: 8px;
   margin: 0 0 12px;
 }
+.card__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 .card__like-button {
   background-image: url(../images/Union.svg);
