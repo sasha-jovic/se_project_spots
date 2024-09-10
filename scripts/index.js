@@ -47,9 +47,7 @@ function getCardElement(data) {
   const cardImage = cardElement.querySelector(".card__image");
 
   cardNameEl.textContent = data.name;
-  let userTemplate = document.querySelector("#card-template").content;
-  let usersOnline = document.querySelector(".card");
-  let userElement = userTemplate.querySelector(".card").cloneNode(true);
+
   cardImage.src = data.link;
   cardImage.alt = data.name;
 
@@ -68,6 +66,7 @@ function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescriptionInput.value;
+  closeModal();
 }
 profileEditButton.addEventListener("click", openModal);
 editModalCloseButton.addEventListener("click", closeModal);

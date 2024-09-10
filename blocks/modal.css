@@ -26,7 +26,6 @@
   padding-bottom: 32px;
   padding-left: 50px;
   max-width: 730px;
-
   position: relative;
   width: 100%;
   box-sizing: border-box;
@@ -78,13 +77,11 @@
   padding: 16px 12px;
   max-width: 630px;
   width: 100%;
-
   border-radius: 8px;
   font-family: "Poppins", "Helvetica", "sans-serif";
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
-
   margin: 0;
   gap: 10px;
   box-sizing: border-box;
