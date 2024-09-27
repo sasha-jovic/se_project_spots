@@ -34,7 +34,7 @@
             </button>
           </div>
 
-          <button type="button" class="profile__button">
+          <button type="button" class="profile__new-post-button">
             <img src="./images/Group-26.svg" alt="plus" class="profile__plus" />
             <span class="profile__button-text">New Post</span>
           </button>
@@ -46,7 +46,11 @@
                 <img class="card__image" src="" alt="" />
                 <div class="card__footer">
                   <h2 class="card__title"></h2>
-                  <button type="button" class="card__like-button"></button>
+                  <button
+                    type="button"
+                    id="cardLikeButtonLiked"
+                    class="card__like-button card__like-button_liked"
+                  ></button>
                 </div>
               </li>
             </template>
@@ -56,24 +60,27 @@
       <footer class="footer">
         <p class="footer__copyright">2023©Spots</p>
       </footer>
-      <div class="modal" id="edit-profile-modal">
-        <div class="modal__container">
-          <button type="submit" class="modal__close-button">
+
+      <div class="modal" id="edit-modal">
+        <div class="modal__content">
+          <button type="submit" class="modal__close">
             <img
               src="./images/Group-27.png"
               alt="close-button"
-              class="modal__close"
+              class="modal__close_image"
             />
           </button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form">
-            <label for="name" class="modal__label">
+            <label for="profile-name-input" class="modal__label">
               Name
               <input
                 id="profile-name-input"
                 type="text"
                 class="modal__input"
+                name="name"
                 placeholder="Type your name"
+                autocomplete="on"
               />
             </label>
             <label for="profile-description-input" class="modal__label">
@@ -82,7 +89,46 @@
                 id="profile-description-input"
                 type="text"
                 class="modal__input"
+                name="description"
                 placeholder="Describe yourself"
+                autocomplete="on"
+              />
+            </label>
+            <button type="submit" class="modal__submit-button">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal" id="add-card-modal">
+        <div class="modal__content">
+          <button type="button" class="modal__close">
+            <img
+              src="./images/Group-27.png"
+              alt="close-button"
+              class="modal__close"
+            />
+          </button>
+          <h2 class="modal__title">New post</h2>
+          <form class="modal__form" id="add-card-form">
+            <label class="modal__label" for="add-card-link-input">
+              Image link
+              <input
+                id="add-card-link-input"
+                type="url"
+                class="modal__input"
+                name="link"
+                placeholder="Paste a link to the picture"
+              />
+            </label>
+            <label for="add-card-name-input" class="modal__label">
+              Caption
+              <input
+                id="add-card-name-input"
+                type="text"
+                class="modal__input"
+                name="name"
+                placeholder="Type your caption"
+                autocomplete="on"
               />
             </label>
             <button type="submit" class="modal__submit-button">Save</button>
@@ -90,6 +136,7 @@
         </div>
       </div>
     </div>
+
     <script defer src="./scripts/index.js"></script>
   </body>
 </html>

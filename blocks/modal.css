@@ -13,11 +13,11 @@
   visibility: hidden;
 }
 
-.modal_opened {
+.modal_is-opened {
   visibility: visible;
 }
 
-.modal__container {
+.modal__content {
   display: flex;
   flex-direction: column;
   background: white;
@@ -38,7 +38,7 @@
   max-width: 630px;
   width: 100%;
 }
-.modal__close-button {
+.modal__close {
   position: absolute;
   top: 32px;
   right: 50px;
@@ -48,6 +48,7 @@
   opacity: 40%;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 .modal__title {
   width: 169px;
@@ -96,6 +97,10 @@
   color: #fcf5e5;
   gap: 8px;
   border-radius: 8px;
+  cursor: pointer;
+}
+.modal__submit-button:hover {
+  background: rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (max-width: 627px) {
