@@ -40,9 +40,9 @@
 }
 .modal__close {
   position: absolute;
-  top: 32px;
-  right: 50px;
-  background-color: transparent;
+  top: 15px;
+  right: 23px;
+  background: none;
   border: none;
   color: #212121;
   opacity: 40%;
@@ -50,6 +50,7 @@
   height: 40px;
   cursor: pointer;
 }
+
 .modal__title {
   width: 169px;
   height: 32px;
