@@ -40,8 +40,8 @@
 }
 .modal__close {
   position: absolute;
-  top: 15px;
-  right: 23px;
+  top: 24px;
+  right: 40px;
   background: none;
   border: none;
   color: #212121;

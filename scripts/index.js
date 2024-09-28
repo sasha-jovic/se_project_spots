@@ -52,10 +52,22 @@ function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
-  const cardNameEl = cardElement.querySelector(".card__title");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+
   const cardImageEl = cardElement.querySelector(".card__image");
-  cardNameEl.textContent = data.name;
-  cardImageEl.textContent = cardNameEl.link;
+  const cardLikeButton = cardElement.querySelector(".card__like-button");
+  const cardDeleteButton = document.querySelector(".card__delete-button");
+  cardTitleEl.textContent = data.name;
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
+  cardLikeButton.addEventListener("click", () => {
+    cardLikeButton.classList.toggle("card__like-button_liked");
+
+    cardDeleteButton.addEventListener("click", () => {
+      cardImageEl.remove();
+    });
+  });
+
   return cardElement;
 }
 function openModal(modal) {
@@ -72,11 +84,16 @@ function handleEditFormSubmit(evt) {
 }
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  //make image appear
 
-  const nameInputValue = cardModalNameInput.value;
+  const nameInputValue = cardNameInput.value;
   const linkInputValue = cardModalLinkInput.value;
-  cardsList.prepend(cardEl);
+  cardsList.prepend(
+    getCardElement({
+      name: nameInputValue,
+      link: linkInputValue,
+    })
+  );
+  closeModal(cardModal);
   console.log(nameInputValue);
   console.log(linkInputValue);
 }
