@@ -13,7 +13,11 @@
   </head>
   <body>
     <header class="header">
-      <img src="images/Logo.svg" alt="spot logo" class="header__logo" />
+      <img
+        src="./images/Logo 4.43.21 PM.svg"
+        alt="spot logo"
+        class="header__logo"
+      />
     </header>
     <div class="page">
       <main class="content">
@@ -43,12 +47,12 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
-                <img src="" alt="" class="card__image" />
+                <img src="#" alt="" class="card__image" />
                 <div class="card__footer">
-                  <h2 class="card__title"></h2>
+                  <h2 class="card__title">#</h2>
 
                   <button class="card__delete-button" type="button">
-                    <img src="" alt="" />
+                    <img src="#" alt="" />
                   </button>
                   <button
                     type="button"
@@ -105,7 +109,7 @@
 
       <div class="modal" id="add-card-modal">
         <div class="modal__content">
-          <button type="button" class="modal__close">
+          <button aria-label="Close-modal" type="button" class="modal__close">
             <img
               src="./images/Group-27.png"
               alt="close-button"
@@ -138,6 +142,23 @@
             <button type="submit" class="modal__submit-button">Save</button>
           </form>
         </div>
+      </div>
+    </div>
+    <div class="modal" id="preview-modal">
+      <div class="modal__content modal__content_type_preview">
+        <button
+          aria-label="Close modal"
+          class="modal__close modal__close_type_preview"
+          type="button"
+        ></button>
+        <img
+          class="modal__image"
+          src="#"
+
+
+
+          alt=""
+        <p class="modal__caption">long bridge</p>
       </div>
     </div>
 

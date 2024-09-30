@@ -56,16 +56,24 @@ function getCardElement(data) {
 
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeButton = cardElement.querySelector(".card__like-button");
-  const cardDeleteButton = document.querySelector(".card__delete-button");
+  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+  const previewModal = document.querySelector("#preview-modal");
+  const previewModalImageEl = previewModal.querySelector(".modal__image");
+  const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
+
   cardTitleEl.textContent = data.name;
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
   cardLikeButton.addEventListener("click", () => {
     cardLikeButton.classList.toggle("card__like-button_liked");
-
-    cardDeleteButton.addEventListener("click", () => {
-      cardImageEl.remove();
-    });
+  });
+  cardImageEl.addEventListener("click", () => {
+    openModal(previewModal);
+    previewModalImageEl.src = data.link;
+    previewModalCaptionEl.alt = data.name;
+  });
+  cardDeleteButton.addEventListener("click", () => {
+    cardElement.remove();
   });
 
   return cardElement;
