@@ -102,7 +102,7 @@
   max-width: 630px;
   width: 100%;
   border-radius: 8px;
-  font-family: "Poppins", "Arial" "Helvetica", "sans-serif";
+  font-family: "Poppins", "Arial", "Helvetica", "sans-serif";
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
@@ -115,7 +115,7 @@
 .modal__submit-button {
   width: 156px;
   height: 52px;
-  padding: 18px, 32px;
+  padding: 18px 32px;
   background-color: #212121;
   color: #fcf5e5;
   gap: 8px;
