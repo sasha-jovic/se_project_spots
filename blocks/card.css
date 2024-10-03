@@ -46,7 +46,7 @@
   opacity: 1;
 }
 .card__like-button_liked {
-  background-image: url(../images/redHeart2.svg);
+  background-image: url("../images/likeIcon-redHeart.svg");
   opacity: 1;
 }
 
