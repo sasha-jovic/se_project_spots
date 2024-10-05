@@ -71,15 +71,9 @@
 
       <div class="modal" id="edit-modal">
         <div class="modal__content">
-          <button type="submit" class="modal__close">
-            <img
-              src="./images/close-button.png"
-              alt="close-button"
-              class="modal__close_image"
-            />
-          </button>
+          <button type="submit" class="modal__close"></button>
           <h2 class="modal__title">Edit profile</h2>
-          <form name="edit-profile" class="modal__form">
+          <form name="profile-form" class="modal__form">
             <label for="profile-name-input" class="modal__label">
               Name
               <input
@@ -109,14 +103,13 @@
 
       <div class="modal" id="add-card-modal">
         <div class="modal__content">
-          <button aria-label="Close-modal" type="button" class="modal__close">
-            <img
-              src="./images/close-button.svg"
-              alt="close-button"
-              class="modal__close-image"
-            />
-          </button>
-          <h2 class="modal__title">New post</h2>
+          <button
+            aria-label="Close-modal"
+            type="button"
+            class="modal__close"
+          ></button>
+          <p class="modal__title">New post</p>
+
           <form class="modal__form" id="add-card-Modal">
             <label class="modal__label" for="add-card-link-input">
               Image link
@@ -148,11 +141,15 @@
       <div class="modal__content modal__content_type_preview">
         <button
           aria-label="Close modal"
-          class="modal__close modal__close_type_preview"
+          class="modal__close"
+          id="add-modal-close"
           type="button"
         ></button>
         <img class="modal__image modal__image-preview" src="#" alt="" />
-        <p class="modal__caption" id="add-modal-caption"></p>
+        <p
+          class="modal__caption modal__caption_type_preview"
+          id="add-modal-caption"
+        ></p>
       </div>
     </div>
 

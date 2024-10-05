@@ -28,7 +28,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
   },
 ];
-
+const previewModal = document.querySelector("#preview-modal");
 const profileEditButton = document.querySelector(".profile__edit-button");
 
 const profileName = document.querySelector(".profile__name");
@@ -51,10 +51,10 @@ const cardModalCaptionInput = document.querySelector("#add-card-name-input");
 const cardForm = cardModal.querySelector(".modal__form");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
-const previewModalCloseButton = document.querySelector("#preview-modal");
+const previewModalCloseButton = document.querySelector("#add-modal-close");
 
 previewModalCloseButton.addEventListener("click", () => {
-  closeModal(previewModalCloseButton);
+  closeModal(previewModal);
 });
 
 function getCardElement(data) {
@@ -66,7 +66,7 @@ function getCardElement(data) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-  const previewModal = document.querySelector("#preview-modal");
+
   const previewModalImageEl = previewModal.querySelector(".modal__image");
   const previewModalCaptionEl =
     previewModal.querySelector("#add-modal-caption");
