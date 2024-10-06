@@ -10,11 +10,15 @@
   padding: 0 16px;
   align-items: center;
   justify-content: center;
-  /* visibility: hidden; */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
 .modal_is-opened {
   visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
 }
 
 .modal__content {
@@ -34,12 +38,9 @@
   border-radius: 8px;
   background: transparent;
   position: relative;
-  /* width: auto; */
   max-width: 85vw;
   width: 446px;
   height: 661px;
-
-  /* left: 497px; */
 }
 .modal__form {
   display: flex;
@@ -49,25 +50,27 @@
 }
 .modal__close {
   position: absolute;
-
-  background: none;
-  border: none;
-
-  background-image: url(../images/close-button.png);
-  color: #212121;
-  opacity: 40%;
+  top: 27px;
+  right: 40px;
   width: 40px;
   height: 40px;
+  background: none;
+  border: none;
   cursor: pointer;
-  top: 27px;
-  right: 38px;
+  background-image: url("../images/modalCloseBtn.svg");
+  opacity: 40%;
 }
-
+.modal__close:hover {
+  opacity: 100%;
+}
 .modal__close_type_preview {
-  background-image: url(../images/close-button:light.svg);
+  background-image: url("../images/modalCloseBtn.svg");
+  cursor: pointer;
   top: 23px;
-  right: 0px;
-  opacity: 1;
+  right: 3px;
+}
+.modal__close_type_preview:hover {
+  opacity: 100%;
 }
 
 .modal__title {
@@ -93,8 +96,6 @@
   line-height: 17.6px;
   color: #212121;
   opacity: 70%;
-  /* width: 85px; */
-  /* height: 18px; */
 }
 .modal__input {
   padding: 16px 12px;
@@ -147,9 +148,7 @@
   .modal {
     padding: 0 10px;
   }
-  .modal__container {
-    /* padding: 12px; */
-  }
+
   .modal__title {
     font-size: 20px;
     margin: 10px 0 34px;
@@ -157,9 +156,8 @@
     padding: 0;
   }
   .modal__close {
-    top: 14px;
-    right: 0px;
-    bottom: 2px;
+    top: 10px;
+    right: 3px;
   }
   .modal__label {
     margin-bottom: 24px;
@@ -171,15 +169,13 @@
     width: 300px;
     height: 336px;
     padding: 12px;
-    /* gap: 24px; */
+
     top: 134px;
-    /* left: 10px; */
   }
   .modal__input {
     width: 276px;
     height: 48px;
     border-radius: 8px;
-    /* border: 1px; */
     font-family: "Poppins";
     font-weight: 500;
     font-size: 16px;

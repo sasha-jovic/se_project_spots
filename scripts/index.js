@@ -58,8 +58,6 @@ const previewModalCloseButton = document.querySelector(
 const previewModalImageEl = document.querySelector(".modal__image");
 const previewModalCaptionEl = document.querySelector("#add-modal-caption");
 
-// const previewModalImageEl = document.querySelector(".modal__close");
-
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
