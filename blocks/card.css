@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 .card__delete-button:hover {
-  background-image: url("../images/delite-icon:red.svg");
+  background-image: url(../images/delete-icon-red.svg);
 }
 .card__footer {
   display: flex;

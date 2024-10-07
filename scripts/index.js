@@ -78,6 +78,7 @@ function getCardElement(data) {
   cardLikeButton.addEventListener("click", () => {
     cardLikeButton.classList.toggle("card__like-button_liked");
   });
+
   cardImageEl.addEventListener("click", () => {
     openModal(previewModal);
     previewModalImageEl.src = data.link;
@@ -102,9 +103,9 @@ function handleEditFormSubmit(evt) {
   profileDescription.textContent = editModalDescriptionInput.value;
   closeModal(editModal);
 }
+
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  evt.target.reset();
 
   const nameInputValue = cardNameInput.value;
   const linkInputValue = cardModalLinkInput.value;
@@ -117,7 +118,9 @@ function handleAddCardSubmit(evt) {
   closeModal(cardModal);
   console.log(nameInputValue);
   console.log(linkInputValue);
+  evt.target.reset();
 }
+
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;

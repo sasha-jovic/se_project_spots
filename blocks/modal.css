@@ -64,13 +64,14 @@
   opacity: 100%;
 }
 .modal__close_type_preview {
-  background-image: url("../images/modalCloseBtn.svg");
+  background-image: url("../images/modalCloseBtn-white.svg");
   cursor: pointer;
   top: 23px;
   right: 3px;
+  opacity: 100%;
 }
 .modal__close_type_preview:hover {
-  opacity: 100%;
+  opacity: 40%;
 }
 
 .modal__title {
@@ -156,8 +157,13 @@
     padding: 0;
   }
   .modal__close {
-    top: 10px;
-    right: 3px;
+    top: 4px;
+    right: 2px;
+  }
+  .modal__close_type_preview {
+    top: -30px;
+    right: 0px;
+    background-image: url("../images/modalCloseBtn-white.svg");
   }
   .modal__label {
     margin-bottom: 24px;
@@ -169,7 +175,6 @@
     width: 300px;
     height: 336px;
     padding: 12px;
-
     top: 134px;
   }
   .modal__input {
