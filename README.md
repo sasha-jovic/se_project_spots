@@ -31,3 +31,7 @@ Good luck and have fun!
 #### project Spots video:
 
 https://drive.google.com/file/d/1Xmw1WLsA0j-GY9MjxPya-B-A8umcyyll/view?usp=share_link
+
+# Project 6:Spots
+
+## form validation

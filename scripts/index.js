@@ -54,12 +54,15 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 const previewModalCloseButton = document.querySelector(
   ".modal__close_type_preview"
 );
-
+const modalSubmitButton = cardModal.querySelector(
+  ".modal__submit-button_disabled"
+);
+const cardSubmitButton = cardModal.querySelector(".modal__submit-button");
 const previewModalImageEl = document.querySelector(".modal__image");
 const previewModalCaptionEl = document.querySelector("#add-modal-caption");
 
 previewModalCloseButton.addEventListener("click", () => {
-  closeModal(previewModal);
+  closeModal(previewModal, settings);
 });
 
 function getCardElement(data) {
@@ -101,7 +104,7 @@ function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editModal);
+  closeModal(editModal, settings);
 }
 
 function handleAddCardSubmit(evt) {
@@ -119,27 +122,30 @@ function handleAddCardSubmit(evt) {
   console.log(nameInputValue);
   console.log(linkInputValue);
   evt.target.reset();
+  disableButton(cardSubmitButton, settings);
+  cardForm.reset();
+  disableButton(cardSubmitButton, settings);
 }
 
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-
-  openModal(editModal);
+  // resetValidation(editModal, [editModalNameInput, profileDescription]);
+  openModal(editModal, settings);
 });
 editModalCloseButton.addEventListener("click", () => {
-  closeModal(editModal);
+  closeModal(editModal, settings);
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
 cardModalButton.addEventListener("click", () => {
-  openModal(cardModal);
+  openModal(cardModal, settings);
 });
 
 cardModalCloseButton.addEventListener("click", () => {
-  closeModal(cardModal);
+  closeModal(cardModal, settings);
 });
 
 initialCards.forEach((item) => {
