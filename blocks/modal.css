@@ -127,17 +127,9 @@
   display: block;
   color: #ff0000;
   opacity: 70%;
-  /* visibility: hidden; */
-  margin: 8px, 0px, 32px;
+  margin: 8px, 0 32px;
   width: 630px;
-
-  text-overflow: ellipsis;
   overflow: hidden;
-  /* display: -webkit-box; */
-  /* -webkit-line-clamp: 2; */
-  /* -webkit-box-orient: vertical; */
-
-  overflow-wrap: break-word;
   font-family: "Poppins";
   font-weight: 500;
   font-size: 16px;
@@ -159,9 +151,6 @@
 .modal__submit-button_disabled {
   opacity: 50%;
 }
-/* .modal__submit-button_disabled:hover { */
-/* opacity: 50%; */
-/* } */
 
 .modal__submit-button:hover {
   background: #212121;
