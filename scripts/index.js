@@ -94,17 +94,33 @@ function getCardElement(data) {
 
   return cardElement;
 }
+
+function handleCloseModalByEsc(e) {
+  const openedModal = document.querySelector(".modal_is-opened");
+  if (openedModal && e.key === "Escape") {
+    closeModal(openedModal);
+  }
+}
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+
+  document.addEventListener("keydown", handleCloseModalByEsc);
+  modal.addEventListener("mousedown", handleCloseModalOverlayClick);
 }
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleCloseModalByEsc);
+  modal.removeEventListener("mousedown", handleCloseModalOverlayClick);
 }
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescriptionInput.value;
   closeModal(editModal, settings);
+}
+
+function handleCloseModalOverlayClick(e) {
+  if (e.target.classList.contains("modal")) closeModal(e.target);
 }
 
 function handleAddCardSubmit(evt) {
@@ -119,8 +135,7 @@ function handleAddCardSubmit(evt) {
     })
   );
   closeModal(cardModal);
-  console.log(nameInputValue);
-  console.log(linkInputValue);
+
   evt.target.reset();
   disableButton(cardSubmitButton, settings);
   cardForm.reset();
@@ -130,7 +145,11 @@ function handleAddCardSubmit(evt) {
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-  // resetValidation(editModal, [editModalNameInput, profileDescription]);
+  resetValidation(
+    editFormElement,
+    [editModalNameInput, editModalDescriptionInput],
+    settings
+  );
   openModal(editModal, settings);
 });
 editModalCloseButton.addEventListener("click", () => {
@@ -141,6 +160,7 @@ editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
 cardModalButton.addEventListener("click", () => {
+  resetValidation(cardForm, [cardModalLinkInput, cardNameInput], settings);
   openModal(cardModal, settings);
 });
 
