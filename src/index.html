@@ -7,19 +7,21 @@
     <meta name="description" content="website" />
     <meta name="keywords" content="se_project_spots" />
     <title>Spots</title>
-
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
   </head>
   <body>
     <header class="header">
-      <img src="./images/spots-logo.svg" alt="spot logo" class="header__logo" />
+      <img
+        src="<%=require('./images/spots-logo.svg')%>"
+        alt="spot logo"
+        class="header__logo"
+      />
     </header>
     <div class="page">
       <main class="content">
         <section class="profile page__section">
+          <!-- lodash syntax -->
           <img
-            src="./images/avatar.webp"
+            src="<%=require('./images/avatar.webp')%>"
             alt="bessie"
             class="profile__avatar"
           />
@@ -30,7 +32,7 @@
 
             <button type="button" class="profile__edit-button">
               <img
-                src="./images/pencil.svg"
+                src="<%=require('./images/pencil.svg')%>"
                 alt="pencil"
                 class="profile__pencil"
               />
@@ -39,7 +41,11 @@
           </div>
 
           <button type="button" class="profile__new-post-button">
-            <img src="./images/Group-26.svg" alt="plus" class="profile__plus" />
+            <img
+              src="<%=require('./images/Group-26.svg')%>"
+              alt="plus"
+              class="profile__plus"
+            />
             <span class="profile__button-text">New Post</span>
           </button>
         </section>
@@ -190,7 +196,5 @@
         ></p>
       </div>
     </div>
-    <script defer src="./scripts/validation.js"></script>
-    <script defer src="./scripts/index.js"></script>
   </body>
 </html>
