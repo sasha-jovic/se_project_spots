@@ -1,4 +1,4 @@
-export const settings = {
+export const validationConfig = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-button",
@@ -6,7 +6,6 @@ export const settings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error",
 };
-
 const showInputError = (formEl, inputEl, errorMsg, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
@@ -22,7 +21,7 @@ const hideInputError = (formEl, inputEl, config) => {
 const checkInputValidity = (formEl, inputEl, config) => {
   console.log(inputEl.validationMessage);
 
-  if ((!inputEl.validity.valid, config)) {
+  if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, inputEl.validationMessage, config);
   } else {
     hideInputError(formEl, inputEl, config);
@@ -71,11 +70,22 @@ const setEventListeners = (formEl, config) => {
     });
   });
 };
-
 export const enableValidation = (config) => {
-  // console.log(config.formSelector);
-  const formList = document.querySelectorAll(settings.formSelector);
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((formEl) => {
-    setEventListeners(formEl, settings);
+    formEl.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+    setEventListeners(formEl, config);
   });
 };
+
+// export const enableValidation = (config) => {
+//   // console.log(config.formSelector);
+//   const formList = document.querySelectorAll(settings.formSelector);
+//   formList.forEach((formEl) => {
+//     setEventListeners(formEl, settings);
+//   });
+// };
+
+export const settings = validationConfig;

@@ -32,7 +32,7 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      promise.reject(`Error: ${res.ststus}`);
+      promise.reject(`Error: ${res.status}`);
     });
     // handle the response
   }
@@ -49,7 +49,7 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      promise.reject(`Error: ${res.ststus}`);
+      promise.reject(`Error: ${res.status}`);
     });
     // handle the response
   }

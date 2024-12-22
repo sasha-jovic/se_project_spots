@@ -1,5 +1,6 @@
 import {
   enableValidation,
+  validationConfig,
   settings,
   resetValidation,
   disableButton,
@@ -62,8 +63,6 @@ const deleteModal = document.querySelector("#delete-modal");
 const deleteModalCloseButton = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
 
-let selectedCard, selectedCardId;
-
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
   const editModal = document.querySelector(".modal_is-opened");
@@ -85,8 +84,9 @@ function getCardElement(data) {
   cardLikeButton.addEventListener("click", () => {
     cardLikeButton.classList.toggle("card__like-button_liked");
   });
-  cardDeleteButton.addEventListener("click", (evt) => {
-    handleDeleteCard(cardElement, data._id);
+
+  cardDeleteButton.addEventListener("click", () => {
+    handleDeleteCard(cardElement, data);
   });
 
   cardImageEl.addEventListener("click", (evt) => {
@@ -95,10 +95,7 @@ function getCardElement(data) {
     previewModalCaptionEl.textContent = data.name;
     previewModalImageEl.alt = data.name;
   });
-  cardDeleteButton.addEventListener("click", () => {
-    // cardElement.remove();
-    openModal(deleteModal);
-  });
+
   deleteModalCloseButton.addEventListener("click", () => {
     closeModal(deleteModal, settings);
   });
@@ -116,18 +113,25 @@ function handleAvatarSubmit(evt) {
     })
     .catch(console.error);
 }
-function handleDeleteCard(cardElement, cardId) {
-  // selectedCard = cardElement;
-  // selectedCardId = data._id;
-  openModal(deleteModal);
-  console.log(cardId);
-}
+
+let selectedCard, selectedCardId;
+
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
   api
     .deleteCard(selectedCardId)
-    .then(() => {})
+    .then(() => {
+      console.log("Delete");
+      selectedCard.remove();
+      closeModal(deleteModal);
+    })
     .catch(console.error);
+}
+
+function handleDeleteCard(element, data) {
+  selectedCard = element;
+  selectedCardId = data._id;
+  openModal(deleteModal);
 }
 
 function handleCloseModalByEsc(e) {
