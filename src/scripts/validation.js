@@ -36,7 +36,9 @@ const hasInvalidInput = (inputList) => {
 };
 
 const toggleButtonState = (inputList, buttonEl, config) => {
+  console.log("");
   if (hasInvalidInput(inputList)) {
+    console.log("we should be disabling");
     disableButton(buttonEl, config);
   } else {
     buttonEl.disabled = false;
@@ -44,7 +46,7 @@ const toggleButtonState = (inputList, buttonEl, config) => {
   }
 };
 
-const disableButton = (buttonEl, config) => {
+export const disableButton = (buttonEl, config) => {
   buttonEl.classList.add(config.inactiveButtonClass);
   buttonEl.disabled = true;
 };
@@ -64,15 +66,16 @@ const setEventListeners = (formEl, config) => {
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formEl, inputElement, config);
+      console.log("this is firing");
       toggleButtonState(inputList, buttonElement, config);
     });
   });
 };
 
 export const enableValidation = (config) => {
-  console.log(config.formSelector);
-  const formList = document.querySelectorAll(config.formSelector);
+  // console.log(config.formSelector);
+  const formList = document.querySelectorAll(settings.formSelector);
   formList.forEach((formEl) => {
-    setEventListeners(formEl, config);
+    setEventListeners(formEl, settings);
   });
 };

@@ -1,11 +1,13 @@
 {
-  "name": "Insert project name",
+  "name": "insert-project-name",
   "version": "0.1.0",
   "description": "Describe the project",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack serve --mode development"
+    "dev": "webpack serve --mode development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "TripleTen",
   "license": "ISC",
@@ -26,5 +28,14 @@
   },
   "dependencies": {
     "core-js": "3.23.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git checkout -b project-9"
+  },
+  "keywords": [
+    "git",
+    "switch",
+    "-c"
+  ]
 }

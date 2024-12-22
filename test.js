@@ -11,9 +11,8 @@ import "./index.css";
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    // authorization: "ce6accd1-54f9-4a7f-9008-5e7fc57d42dd",
-    authorization: "b2db802e-b8de-434c-b049-524ce0a493f9",
-    // new one might need to change
+    authorization: "ce6accd1-54f9-4a7f-9008-5e7fc57d42dd",
+    // authorization: "738fa1b8-e505-433c-b4d3-e20f550be240", new one might need to change
     "Content-Type": "application/json",
   },
 });
@@ -62,8 +61,6 @@ const deleteModal = document.querySelector("#delete-modal");
 const deleteModalCloseButton = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
 
-let selectedCard, selectedCardId;
-
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
   const editModal = document.querySelector(".modal_is-opened");
@@ -86,7 +83,7 @@ function getCardElement(data) {
     cardLikeButton.classList.toggle("card__like-button_liked");
   });
   cardDeleteButton.addEventListener("click", (evt) => {
-    handleDeleteCard(cardElement, data._id);
+    handleDeleteCard(cardElement, data);
   });
 
   cardImageEl.addEventListener("click", (evt) => {
@@ -116,11 +113,10 @@ function handleAvatarSubmit(evt) {
     })
     .catch(console.error);
 }
-function handleDeleteCard(cardElement, cardId) {
-  // selectedCard = cardElement;
-  // selectedCardId = data._id;
+function handleDeleteCard(cardElement, data) {
+  selectedCard = cardElement;
+  selectedCardId = data._id;
   openModal(deleteModal);
-  console.log(cardId);
 }
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
