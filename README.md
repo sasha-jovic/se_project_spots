@@ -35,3 +35,11 @@ https://drive.google.com/file/d/1Xmw1WLsA0j-GY9MjxPya-B-A8umcyyll/view?usp=share
 # Project 6:Spots
 
 ## form validation
+
+# Project 9:Spots
+
+## Website connection to database via an API.
+
+### Use of JS modules.
+
+(/images/screenshot-1.png)

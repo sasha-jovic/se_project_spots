@@ -4,6 +4,18 @@ class Api {
     this._headers = headers;
   }
 
+  _request(url, options) {
+    return fetch(url, options).then(this._checkResponse);
+  }
+
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject(`Error: ${res.status}`);
+    }
+  }
+
   getAppInfo() {
     return Promise.all([this.getInitialCards()]);
   }
@@ -15,7 +27,7 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      promise.reject(`Error: ${res.ststus}`);
+      Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -49,7 +61,7 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      promise.reject(`Error: ${res.status}`);
+      Promise.reject(`Error: ${res.status}`);
     });
     // handle the response
   }
@@ -63,9 +75,63 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      promise.reject(`Error: ${res.status}`);
+      Promise.reject(`Error: ${res.status}`);
     });
     // handle the response
+  }
+
+  // addCard(name, link) {
+  //   return fetch(`${this._baseUrl}/cards`, {
+  //     method: "POST",
+  //     headers: this._headers,
+  //     // Send the data in the body as a JSON string.
+  //     body: JSON.stringify({
+  //       name,
+  //       link,
+  //     }),
+  //   }).then((res) => {ß
+  //     if (res.ok) {
+  //       return res.json();
+  //     }
+  //     Promise.reject(`Error: ${res.status}`);
+  //   });
+  //   //
+  // }
+
+  addCard({ name, link }) {
+    return this._request(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link,
+      }),
+    });
+  }
+
+  changeLikeStatus(id, isLiked) {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+      method: isLiked ? "DELETE" : "PUT",
+      headers: this._headers,
+      // Send the data in the body as a JSON string.
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      Promise.reject(`Error: ${res.status}`);
+    });
+    // handle the response
+  }
+
+  getUserInfo() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      Promise.reject(`Error: ${res.status}`);
+    });
   }
 }
 

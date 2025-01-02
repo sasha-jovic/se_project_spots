@@ -63,29 +63,30 @@ const setEventListeners = (formEl, config) => {
   toggleButtonState(inputList, buttonElement, config);
 
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", function () {
+    inputElement.addEventListener("input", () => {
       checkInputValidity(formEl, inputElement, config);
       console.log("this is firing");
       toggleButtonState(inputList, buttonElement, config);
     });
   });
-};
-export const enableValidation = (config) => {
-  const formList = Array.from(document.querySelectorAll(config.formSelector));
-  formList.forEach((formEl) => {
-    formEl.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
-    setEventListeners(formEl, config);
-  });
+  // };
+  // export const enableValidation = (config) => {
+  //   const formList = Array.from(document.querySelectorAll(config.formSelector));
+  //   formList.forEach((formEl) => {
+  //     setEventListeners(formEl, config);
+  //     // formEl.addEventListener("submit", (e) => {
+  //     // e.preventDefault();
+  //   });
+  // setEventListeners(formEl, config);
+  // });
 };
 
-// export const enableValidation = (config) => {
-//   // console.log(config.formSelector);
-//   const formList = document.querySelectorAll(settings.formSelector);
-//   formList.forEach((formEl) => {
-//     setEventListeners(formEl, settings);
-//   });
-// };
+export const enableValidation = (config) => {
+  // console.log(config.formSelector);
+  const formList = document.querySelectorAll(settings.formSelector);
+  formList.forEach((formEl) => {
+    setEventListeners(formEl, settings);
+  });
+};
 
 export const settings = validationConfig;

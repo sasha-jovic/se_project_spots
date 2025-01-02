@@ -9,6 +9,7 @@
 .card {
   position: relative;
 }
+
 .card__delete-button {
   position: absolute;
   top: 10px;
@@ -41,6 +42,11 @@
   background-color: transparent;
   cursor: pointer;
   opacity: 40%;
+}
+.card__like-button_isLiked {
+}
+.card__like-button_active {
+  /* visibility: hidden; */
 }
 .card__like-button:hover {
   opacity: 1;
