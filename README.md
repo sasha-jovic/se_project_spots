@@ -40,6 +40,12 @@ https://drive.google.com/file/d/1Xmw1WLsA0j-GY9MjxPya-B-A8umcyyll/view?usp=share
 
 ## Website connection to database via an API.
 
-### Use of JS modules.
+### techniques:
+
+- Use of JS modules.
 
 (/images/screenshot-1.png)
+(/images/screenshot-2.png)
+
+- Implementation of webpack.
+  (/images/screenshot-3.png)
