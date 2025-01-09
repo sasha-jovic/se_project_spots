@@ -11,7 +11,6 @@ const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "8e00a2bb-0ffc-4c2d-9743-2c9af69ab681",
-    // new one might need to change
     "Content-Type": "application/json",
   },
 });
@@ -194,8 +193,6 @@ function closeModal(modal) {
 }
 
 function handleEditFormSubmit(evt) {
-  // const formData = get;
-
   evt.preventDefault();
   const submitBtn = evt.submitter;
   submitBtn.textContent = "Saving...";
