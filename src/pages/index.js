@@ -1,7 +1,5 @@
 import {
   enableValidation,
-  validationConfig,
-  settings,
   resetValidation,
   disableButton,
 } from "../scripts/validation.js";
@@ -64,11 +62,6 @@ const deleteModal = document.querySelector("#delete-modal");
 const deleteModalCloseButton = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
 
-previewModalCloseButton.addEventListener("click", () => {
-  closeModal(previewModal);
-  const editModal = document.querySelector(".modal_is-opened");
-});
-
 function getCardElement(data) {
   let isLiked = data.isLiked;
   const _id = data._id;
@@ -85,7 +78,7 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
   cardLikeButton.addEventListener("click", (evt) => {
-    handleLike(evt, data._id);
+    handleLike(evt);
   });
 
   if (isLiked) {
@@ -93,7 +86,6 @@ function getCardElement(data) {
   }
 
   function handleLike(evt) {
-    //remove evt.target.classList.toggle("card__like-button-active");
     api
       .changeLikeStatus(_id, isLiked)
       .then((data) => {
@@ -215,7 +207,7 @@ function handleEditFormSubmit(evt) {
     .then((data) => {
       profileName.textContent = editModalNameInput.value;
       profileDescription.textContent = editModalDescriptionInput.value;
-      closeModal(editModal, settings);
+      closeModal(editModal);
     })
     .catch(console.error)
     .finally(() => {
@@ -249,20 +241,15 @@ function handleAddCardSubmit(evt) {
     .then((res) => {
       const cardEl = getCardElement(res);
       cardsList.prepend(cardEl);
+      closeModal(cardModal);
+      evt.target.reset();
+      disableButton(cardSubmitButton, validationConfig);
+      cardForm.reset();
     })
-    // .catch((error) => {
-    // console.error("error adding card:", error);
-    // });
     .catch(console.error)
     .finally(() => {
       submitBtn.textContent = "save";
     });
-
-  closeModal(cardModal);
-
-  evt.target.reset();
-  disableButton(cardSubmitButton, settings);
-  cardForm.reset();
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -272,43 +259,48 @@ profileEditButton.addEventListener("click", () => {
     editFormElement,
 
     [editModalNameInput, editModalDescriptionInput],
-    settings
+    validationConfig
   );
-  openModal(editModal, settings);
+  openModal(editModal);
 });
 editModalCloseButton.addEventListener("click", () => {
-  closeModal(editModal, settings);
+  closeModal(editModal);
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
 cardModalButton.addEventListener("click", () => {
-  openModal(cardModal, settings);
+  openModal(cardModal);
 });
 
 cardModalCloseButton.addEventListener("click", () => {
-  closeModal(cardModal, settings);
+  closeModal(cardModal);
 });
-
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 avatarForm.addEventListener("submit", handleAvatarSubmit);
 
 avatarModalButton.addEventListener("click", () => {
-  openModal(avatarModal, settings);
+  openModal(avatarModal);
 });
 
 avatarModalCloseButton.addEventListener("click", () => {
-  closeModal(avatarModal, settings);
+  closeModal(avatarModal);
 });
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);
 
-api.getInitialCards().then((cards) => {
-  cards.forEach((item) => {
-    const cardElement = getCardElement(item);
-    cardsList.append(cardElement);
-  });
-});
+api
+  .getInitialCards()
+  .then((cards) => {
+    cards.forEach((item) => {
+      const cardElement = getCardElement(item);
+      cardsList.append(cardElement);
+    });
+  })
+  .catch(console.error);
 
 api
   .getUserInfo()
@@ -322,8 +314,13 @@ api
     alert("Could not retrieve user info.");
   });
 
-api.getAppInfo().then((info) => {
-  console.log(info);
-});
+const validationConfig = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__submit-button",
+  inactiveButtonClass: "modal__submit-button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error",
+};
 
 enableValidation(validationConfig);

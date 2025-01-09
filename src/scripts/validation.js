@@ -1,11 +1,3 @@
-export const validationConfig = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit-button",
-  inactiveButtonClass: "modal__submit-button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error",
-};
 const showInputError = (formEl, inputEl, errorMsg, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
@@ -69,24 +61,13 @@ const setEventListeners = (formEl, config) => {
       toggleButtonState(inputList, buttonElement, config);
     });
   });
-  // };
-  // export const enableValidation = (config) => {
-  //   const formList = Array.from(document.querySelectorAll(config.formSelector));
-  //   formList.forEach((formEl) => {
-  //     setEventListeners(formEl, config);
-  //     // formEl.addEventListener("submit", (e) => {
-  //     // e.preventDefault();
-  //   });
-  // setEventListeners(formEl, config);
-  // });
+  
 };
 
 export const enableValidation = (config) => {
-  // console.log(config.formSelector);
-  const formList = document.querySelectorAll(settings.formSelector);
+  console.log(config);
+  const formList = document.querySelectorAll(config.formSelector);
   formList.forEach((formEl) => {
-    setEventListeners(formEl, settings);
+    setEventListeners(formEl, config);
   });
 };
-
-export const settings = validationConfig;
