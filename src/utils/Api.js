@@ -34,7 +34,6 @@ class Api {
   editUserInfo({ name, about }) {
     return this._request("/users/me", {
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify({
         name,
         about,
@@ -61,7 +60,6 @@ class Api {
   addCard({ name, link }) {
     return this._request(`/cards`, {
       method: "POST",
-      headers: this._headers,
       body: JSON.stringify({
         name,
         link,

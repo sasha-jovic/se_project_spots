@@ -107,11 +107,6 @@ function getCardElement(data) {
   cardImageEl.addEventListener("click", (evt) => {
     handleImageClick(data);
   });
-
-  deleteModalCloseButton.addEventListener("click", () => {
-    closeModal(deleteModal);
-  });
-
   return cardElement;
 }
 
@@ -150,12 +145,6 @@ function handleDeleteSubmit(evt) {
 
   api
     .deleteCard(selectedCardId)
-    .then(() => {})
-    .catch(console.error);
-  const button = evt.target.querySelector(".modal__submit-button");
-
-  api
-    .deleteCard(selectedCardId)
     .then(() => {
       console.log("Delete");
       selectedCard.remove();
@@ -175,9 +164,9 @@ function handleDeleteCard(element, cardId) {
 }
 
 function handleCloseModalByEsc(e) {
-  if (editModal && e.key === "Escape") {
-    const editModal = document.querySelector(".modal_is-opened");
-    closeModal(editModal);
+  if (e.key === "Escape") {
+    const openedModal = document.querySelector(".modal_is-opened");
+    closeModal(openedModal);
   }
 }
 function openModal(modal) {
@@ -239,7 +228,7 @@ function handleAddCardSubmit(evt) {
       const cardEl = getCardElement(res);
       cardsList.prepend(cardEl);
       closeModal(cardModal);
-      evt.target.reset();
+
       disableButton(cardSubmitButton, validationConfig);
       cardForm.reset();
     })
@@ -269,6 +258,10 @@ cardForm.addEventListener("submit", handleAddCardSubmit);
 
 cardModalButton.addEventListener("click", () => {
   openModal(cardModal);
+});
+
+deleteModalCloseButton.addEventListener("click", () => {
+  closeModal(deleteModal);
 });
 
 cardModalCloseButton.addEventListener("click", () => {
