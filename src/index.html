@@ -7,39 +7,55 @@
     <meta name="description" content="website" />
     <meta name="keywords" content="se_project_spots" />
     <title>Spots</title>
-
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
   </head>
   <body>
     <header class="header">
-      <img src="./images/spots-logo.svg" alt="spot logo" class="header__logo" />
+      <img
+        src="<%=require('./images/spots-logo.svg')%>"
+        alt="spot logo"
+        class="header__logo"
+      />
     </header>
     <div class="page">
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="./images/avatar.webp"
-            alt="bessie"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <img
+              src="<%=require('./images/avatar.webp')%>"
+              alt="bessie"
+              class="profile__avatar"
+            />
+            <button class="profile__avatar-btn">
+              <img
+                src="<%=require('./images/pencil-white.svg')%>"
+                alt="profile__pencil-icon"
+                class="profile__pencil-icon"
+              />
+            </button>
+          </div>
 
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
+            <div class="profile__edit-container">
+              <button type="button" class="profile__edit-button">
+                <img
+                  src="<%=require('./images/pencil.svg')%>"
+                  alt="pencil-icon"
+                  class="profile__pencil-icon"
+                />
 
-            <button type="button" class="profile__edit-button">
-              <img
-                src="./images/pencil.svg"
-                alt="pencil"
-                class="profile__pencil"
-              />
-              Edit Profile
-            </button>
+                Edit Profile
+              </button>
+            </div>
           </div>
 
           <button type="button" class="profile__new-post-button">
-            <img src="./images/Group-26.svg" alt="plus" class="profile__plus" />
+            <img
+              src="<%=require('./images/Group-26.svg')%>"
+              alt="plus"
+              class="profile__plus"
+            />
             <span class="profile__button-text">New Post</span>
           </button>
         </section>
@@ -57,7 +73,7 @@
                   <button
                     type="button"
                     id="cardLikeButtonLiked"
-                    class="card__like-button"
+                    class="card__like-button card__like-button_isLiked"
                   ></button>
                 </div>
               </li>
@@ -190,7 +206,65 @@
         ></p>
       </div>
     </div>
-    <script defer src="./scripts/validation.js"></script>
-    <script defer src="./scripts/index.js"></script>
+
+    <div class="modal" id="avatar-modal">
+      <div class="modal__content">
+        <button
+          aria-label="Close-modal"
+          type="button"
+          class="modal__close"
+        ></button>
+        <p class="modal__title">Edit profile avatar</p>
+
+        <form class="modal__form" id="edit-avatar-form" novalidate>
+          <label class="modal__label" for="profile-avatar-input">
+            Profile Picture
+            <input
+              id="profile-avatar-input"
+              type="url"
+              class="modal__input modal__input_type_error"
+              name="avatar"
+              placeholder="Paste the link to an image"
+              required
+            />
+            <span id="profile-avatar-input-error" class="modal__error"></span>
+          </label>
+          <button
+            type="submit"
+            class="modal__submit-button modal__submit-button_disabled"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="delete-modal">
+      <div class="modal__content modal__content-delete">
+        <button
+          aria-label="Close-modal"
+          type="button"
+          class="modal__close"
+        ></button>
+        <h3 class="modal__title modal__title-delete">
+          Are you sure you want to delete this image?
+        </h3>
+
+        <form class="modal__form" id="delete-form">
+          <div class="modal__delete-content">
+            <button
+              type="submit"
+              class="modal__submit-button modal__submit-button_delete"
+            >
+              Delete
+            </button>
+
+            <button type="button" class="modal__button modal__button_text">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
